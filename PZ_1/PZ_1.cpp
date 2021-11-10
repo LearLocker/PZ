@@ -44,7 +44,8 @@ int main()
 {
     firstAssigment();
 
-    system("clear");
+    system("pause");
+    system("cls");
 
     thirdAssigment();
 }
