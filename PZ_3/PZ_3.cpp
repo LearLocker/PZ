@@ -13,11 +13,11 @@ using std::endl;
 // параметры по дефолту указываются в конце перечисления параметров функции
 // int askNumber(int low = 1, int high);
 
-void printString(string toPrint = "Hello");
+void printStringUsingDefault(string toPrint = "Hello");
 
-void printString(string toPrint, int size);
+void printString(string toPrint);
 
-void printString(string toPrint, bool isDefault);
+void printString();
 
 void thirdAssigment(int n, int k);
 
@@ -27,10 +27,11 @@ int main()
     cout << "Input the string: ";
     getline(cin, inputString);
 
+    printStringUsingDefault(inputString);
+    printStringUsingDefault();
+
     printString(inputString);
-    printString("", true);
     printString();
-    printString("", 0);
 
     system("pause");
     system("cls");
@@ -48,15 +49,12 @@ int main()
     system("cls");
 }
 
-void printString(string toPrint) {
-    cout << "Regular call" << endl;
+void printStringUsingDefault(string toPrint) {
     cout << toPrint << endl;
 }
 
-void printString(string toPrint, int size) {
-    cout << "Using size of string call" << endl;
-
-    if (size != 0) {
+void printString(string toPrint) {
+    if (toPrint.size() != 0) {
         cout << toPrint << endl;
     }
     else {
@@ -64,15 +62,8 @@ void printString(string toPrint, int size) {
     }
 }
 
-void printString(string toPrint, bool isDefault) {
-    cout << "Using flag call" << endl;
-
-    if (isDefault) {
-        cout << "Hello" << endl;
-    }
-    else {
-        cout << toPrint << endl;
-    }
+void printString() {
+    cout << "Hello" << endl;
 }
 
 void thirdAssigment(int n, int k)
