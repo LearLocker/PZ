@@ -20,8 +20,10 @@ void formatName(string& inputString);
 int main()
 {
     std::size_t assigment{};
+
     cout << "Choose the assigment between 1 and 2" << endl;
     cin >> assigment;
+
     switch(assigment) {
     case 1: firstAssigment(); break;
     case 2: secondAssigment(); break;
@@ -33,6 +35,7 @@ void firstAssigment() {
     system("cls");
 
     int firstNum = 0, secondNum = 0, thirdNum = 0, result = 0;
+
     cout << "Please type 3 numbers using space as separator" << endl;
     cin >> firstNum >> secondNum >> thirdNum;
 
@@ -50,7 +53,6 @@ void secondAssigment() {
 
     string name = "Anna";
     char ch = 0;
-    bool valid;
 
     formatName(name);
     cout << name << endl;
@@ -61,10 +63,10 @@ void secondAssigment() {
 
     system("pause");
      
-    // error with users input
     do {
         system("cls");
 
+        cin.ignore(32767, '\n');
         cout << "Input the name: " << endl;
         getline(cin, name);
 
@@ -72,11 +74,11 @@ void secondAssigment() {
 
         cout << name << endl;
 
-        cout << "Do you ant to try more? For exit type 'Esc'" << endl;
-        cin >> ch;
-    } while (ch != 27);
+        cout << "Do you ant to try more? For exit type 'Q'" << endl;
 
-    system("pause");
+        cin >> ch;
+    } while (ch != 'Q' && ch != 'q');
+
     system("cls");
 }
 
