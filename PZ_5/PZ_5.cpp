@@ -8,7 +8,7 @@ using std::endl;
 
 void firstAssigment();
 void secondAssigment();
-void uniqueElements(int* array, const int arraySize);
+void uniqueElements(int* firstArray, const int firstArraySize, int* secondArray, const int secondArraySize);
 
 int main()
 {
@@ -49,15 +49,15 @@ void firstAssigment()
     for (int i = 0; i < arrSize; ++i) {
         cout << userArr[i] << " ";
     }
-    
-    uniqueElements(userArr, arrSize);
 
-    cout << "Given array:" << endl;
+    cout << endl;
+
+    cout << "Given unique array:" << endl;
     for (int i = 0; i < uniqueArrSize; ++i) {
         cout << uniqueArr[i] << " ";
     }
 
-    uniqueElements(uniqueArr, uniqueArrSize);
+    uniqueElements(userArr, arrSize, uniqueArr, uniqueArrSize);
 
     delete[] userArr;
 
@@ -85,37 +85,46 @@ void secondAssigment()
     }
 
     cout << "The product of the elements at even positions is " << product << endl;
-    
+
     delete[] userArr;
 }
 
-void uniqueElements(int* array, const int arraySize)
+void uniqueElements(int* firstArray, const int firstArraySize, int* secondArray, const int secondArraySize)
 {
-    cout << endl << "Unique elements: " << endl;
+    int* duplInFirstArr = new int[firstArraySize] {0};
+    int* duplInSecondArr = new int[secondArraySize] {0};
 
-    bool* duplicate = new bool[arraySize] {false};
-    for (int i = 0; i < arraySize; ++i)
+    int duplCount;
+    for (int i = 0; i < firstArraySize; ++i)
     {
         int j;
-        for (j = i + 1; j < arraySize; ++j) {
-            if (*(duplicate + i)) {
-                break;
-            }
-            else {
-                if (*(array + i) == *(array + j))
-                {
-                    *(duplicate + i) = true;
-                    *(duplicate + j) = true;
-                    break;
-                }
-            }            
+        for (int j = 0; j < secondArraySize; ++j) {
+            if (*(firstArray + i) == *(secondArray + j))
+            {
+                *(duplInFirstArr + i) += 1;
+                *(duplInSecondArr + j) += 1;
+            }           
         }
-            
-        if (!*(duplicate + i))
-            cout << *(array + i) << " ";
+    }
+
+    cout << endl << "Unique elements: " << endl;
+
+    for (int i = 0; i < firstArraySize; ++i)
+    {
+        if (*(duplInFirstArr + i) == 0) {
+            cout << *(firstArray + i) << " ";
+        }
+    }
+
+    for (int i = 0; i < secondArraySize; ++i)
+    {
+        if (*(duplInSecondArr + i) == 0) {
+            cout << *(secondArray + i) << " ";
+        }
     }
 
     cout << endl;
 
-    delete[] duplicate;
+    delete[] duplInFirstArr;
+    delete[] duplInSecondArr;
 }
