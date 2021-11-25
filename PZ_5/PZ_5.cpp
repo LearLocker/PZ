@@ -85,6 +85,8 @@ void secondAssigment()
     }
 
     cout << "The product of the elements at even positions is " << product << endl;
+    
+    delete[] userArr;
 }
 
 void uniqueElements(int* array, const int arraySize)
@@ -114,4 +116,6 @@ void uniqueElements(int* array, const int arraySize)
     }
 
     cout << endl;
+
+    delete[] duplicate;
 }
