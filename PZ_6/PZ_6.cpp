@@ -27,10 +27,10 @@ int main()
 	// Second Assigment
 
 	int  x1, y1, height1, width1, x2, y2, height2, width2;
-	cout << "Please enter the coordinates of the bottom left corner, height and width for the first rectangle" << endl;
+	cout << "Please enter the coordinates of the bottom left corner, width and height for the first rectangle" << endl;
 	cin >> x1 >> y1 >> height1 >> width1;
 
-	cout << "Please enter the coordinates of the bottom left corner, height and width for the second rectangle" << endl;
+	cout << "Please enter the coordinates of the bottom left corner, width and height for the second rectangle" << endl;
 	cin >> x2 >> y2 >> height2 >> width2;
 
 	Rectangle firstRect(x1, y1, width1, height1);
