@@ -18,11 +18,25 @@ Employee::Employee(string lastName) : lastName(lastName) {
 	Init();
 }
 
-void Employee::Init() {
-	seniority         = rand() % 50;
-	hourlyWage        = rand() % 900 + 100;
-	numberOfWorkHours = rand() % 80 + 80;
+// Функция генерирования случайного целочисленного числа в указанных пределах.
+// Диапазон чисел: [min, max]
+int GetRandomNumber(int min, int max)
+{
+	// Установить генератор случайных чисел
+	srand(time(NULL));
+
+	// Получить случайное число - формула
+	int num = min + rand() % (max - min + 1);
+
+	return num;
 }
+
+void Employee::Init() {
+	seniority         = GetRandomNumber(0, 50);
+	hourlyWage        = GetRandomNumber(100, 1000);
+	numberOfWorkHours = GetRandomNumber(80, 160);
+}
+
 
 int Employee::Salary() {
 	return numberOfWorkHours * hourlyWage;

@@ -3,6 +3,8 @@
 #include <cstdint>
 #include <iostream>
 #include <string>
+#include <stdlib.h> // нужен для вызова функций rand(), srand()
+#include <time.h> // нужен для вызова функции time()
 
 using std::string;
 using std::cout;
