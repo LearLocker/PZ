@@ -28,10 +28,10 @@ int main()
 
 	int  x1, y1, height1, width1, x2, y2, height2, width2;
 	cout << "Please enter the coordinates of the bottom left corner, width and height for the first rectangle" << endl;
-	cin >> x1 >> y1 >> height1 >> width1;
+	cin >> x1 >> y1 >> width1 >> height1;
 
 	cout << "Please enter the coordinates of the bottom left corner, width and height for the second rectangle" << endl;
-	cin >> x2 >> y2 >> height2 >> width2;
+	cin >> x2 >> y2 >> width2 >> height2;
 
 	Rectangle firstRect(x1, y1, width1, height1);
 	Rectangle secondRect(x2, y2, width2, height2);
