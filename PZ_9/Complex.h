@@ -10,6 +10,7 @@ public:
     Complex(double r, double i) {
         a = r; b = i;
     }
+    ~Complex() {};
     void set();
     void display();
     
