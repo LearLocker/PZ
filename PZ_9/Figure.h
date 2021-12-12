@@ -11,17 +11,20 @@ public:
 	virtual ~CFigure() {};
 	virtual void CalculusArea(void) = 0;
 	virtual void PrintArea(void) const = 0;
+	std::string getColor();
+	void setColor(std::string _color);
 protected:
 	double area;
+	std::string color = "gray";
 };
 
 class CTriangle : public CFigure
 {
 public:
-	CTriangle(double b, double h) : CFigure(), base(b), height(h) {};
+	CTriangle(double b, double h);
 	~CTriangle() {};
-	void CalculusArea(void) { area = 0.5 * ( base * height ); }
-	void PrintArea(void) const { std::cout << "Area of Triangle (base: " << base << ", height: " << height << ") is " << area << std::endl; }
+	void CalculusArea(void);
+	void PrintArea(void) const;
 protected:
 	double base;
 	double height;
@@ -30,10 +33,10 @@ protected:
 class CCircle : public CFigure
 {
 public:
-	CCircle(double a) : CFigure(), radius(a) {};
+	CCircle(double a);
 	~CCircle() {};
-	void CalculusArea(void) { area = PI * radius * radius; }
-	void PrintArea(void) const { std::cout << "Area of Circle (radius: " << radius << ") is " << area << std::endl; }
+	void CalculusArea(void);
+	void PrintArea(void) const;
 protected:
 	double radius;
 };
@@ -41,10 +44,10 @@ protected:
 class CSquare : public CFigure
 {
 public:
-	CSquare(double a) : CFigure(), side(a) {};
+	CSquare(double a);
 	~CSquare() {};
-	void CalculusArea(void) { area = side * side; }
-	void PrintArea(void) const { std::cout << "Area of Square (side: " << side << ") is " << area << std::endl; }
+	void CalculusArea(void);
+	void PrintArea(void) const;
 protected:
 	double side;
 };

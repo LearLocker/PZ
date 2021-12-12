@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7b4d8678-634f-4976-8c12-13668d300778}</ProjectGuid>
+    <ProjectGuid>{c33627a4-9737-4313-9853-23fb4bb0908d}</ProjectGuid>
     <RootNamespace>PZ9</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>PZ_8</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,10 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="PZ_8.cpp" />
+    <ClCompile Include="Complex.cpp" />
+    <ClCompile Include="Figure.cpp" />
+    <ClCompile Include="PZ_9.cpp" />
+    <ClCompile Include="ShapeLogger.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Complex.h" />
     <ClInclude Include="Figure.h" />
+    <ClInclude Include="ShapeLogger.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
