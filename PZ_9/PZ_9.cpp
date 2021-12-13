@@ -22,7 +22,7 @@ namespace FirstSecondAssigment {
         }
     };
 
-    void fillFigures(std::vector<CFigure*>& figures) {
+        void fillFigures(std::vector<CFigure*>& figures) {
         std::random_device rd;
         std::default_random_engine eng(rd());
         std::uniform_real_distribution<double> distr(MIN, MAX);
@@ -31,7 +31,6 @@ namespace FirstSecondAssigment {
 
         int totalFigureCount = tfc(eng);
         int typeOfFigure, figColor;
-        int trianCount = 0, circleCount = 0, sqrCount = 0;
 
         int sizeOfColors = sizeof(colors) / sizeof(colors[0]);
         std::uniform_int_distribution<int> clr(0, sizeOfColors - 1);
@@ -43,7 +42,6 @@ namespace FirstSecondAssigment {
             case 1: {
                 CFigure* trn = new CTriangle(distr(eng), distr(eng));
                 trn->setColor(colors[figColor]);
-                ++trianCount;
                 figures.push_back(trn);
                 
                 break;
@@ -51,7 +49,6 @@ namespace FirstSecondAssigment {
             case 2: {
                 CFigure* crc = new CCircle(distr(eng));
                 crc->setColor(colors[figColor]);
-                ++circleCount;
                 figures.push_back(crc);
                 
                 break;
@@ -59,7 +56,6 @@ namespace FirstSecondAssigment {
             case 3: {
                 CFigure* sqr = new CSquare(distr(eng));
                 sqr->setColor(colors[figColor]);
-                ++sqrCount;
                 figures.push_back(sqr);
                
                 break;
@@ -67,9 +63,9 @@ namespace FirstSecondAssigment {
             }
         }
 
-        std::cout << "Count of triangles is " << trianCount << std::endl;
-        std::cout << "Count of circles is " << circleCount << std::endl;
-        std::cout << "Count of squares is " << sqrCount << std::endl;
+        std::cout << "Count of triangles is " << CTriangle::trianCount << std::endl;
+        std::cout << "Count of circles is " << CCircle::circleCount << std::endl;
+        std::cout << "Count of squares is " << CSquare::sqrCount << std::endl;
     }
 
     void assigment()
