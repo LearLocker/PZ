@@ -25,6 +25,10 @@ namespace FirstAssigment {
 
         for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); ++it) {
             if ((*it % 5) == 0) {
+                if (it + 1 == vector.end()) {
+                    vector.clear();
+                    break;
+                }
                 vector.erase(it--);
                 continue;
             }
