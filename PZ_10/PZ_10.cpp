@@ -20,6 +20,20 @@ void printVector(std::vector<int>& vector) {
 }
 
 namespace FirstAssigment {
+    void printFormattedVector(std::vector<int>& vector) {
+        std::cout << "Vector is:" << std::endl;
+
+        for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); ++it) {
+            if ((*it % 5) == 0) {
+                vector.erase(it--);
+                continue;
+            }
+            std::cout << *it << " ";
+        }
+
+        std::cout << std::endl;
+    }
+
     void assigment() {
         std::random_device rd;
         std::default_random_engine eng(rd());
@@ -31,13 +45,8 @@ namespace FirstAssigment {
         for (int i = 0; i < count; ++i)
             vect.push_back(distr(eng));
 
-        std::vector<int> vect_sec(vect);
-
         printVector(vect);
-
-        vect.erase(remove_if(vect.begin(), vect.end(), [](int x) { return (x % 5) == 0; }), vect.end());
-
-        printVector(vect);
+        printFormattedVector(vect);
     }
 }
 
@@ -64,17 +73,11 @@ namespace SecondAssigment {
         std::cout << "Vector size is " << vect.size() << std::endl;
         std::cout << "Sum of element is " << std::endl;
 
-        int i = vect.size() / 2;
-        while (i > 0)
+        while (it <= back_it)
         {
             std::cout << *it + *back_it << " " << std::endl;
             ++it;
             --back_it;
-            --i;
-        }
-
-        if (vect.size() % 2 != 0) {
-            std::cout << *it + *it << std::endl;
         }
     }
 }
@@ -92,9 +95,7 @@ namespace ThirdAssigment {
             if (separators.find(text[i]) != separators.end()) {
                 endIndex = i;
                 if (endIndex - startIndex > 0) {
-                    std::string subStr = "";
-                    subStr.append(text, startIndex, endIndex - startIndex);
-                    words.push_back(subStr);
+                    words.push_back(text.substr(startIndex, endIndex - startIndex));
                     currIndex += 1;
                     startIndex = endIndex + 1;
                     words_count++;
@@ -176,5 +177,4 @@ int main()
         std::cout << "Try again? (y-yes, other-exit)" << std::endl;
         std::cin >> exit;
     } while (exit == 'y' || exit == 'Y');
-    
 }
