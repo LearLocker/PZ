@@ -80,6 +80,10 @@ int main()
             std::cin >> number;
             checkNumber(number);
         }
+        /* Блоки catch следует располагать в порядке, обратном порождению
+         * Если обработчик MyBaseException& будет первым, он перехватит исключения 
+         * и MyBaseException1&, и MyBaseException2& и MyBaseException3&
+         */
         catch (MyException_1& e)
         {
             e.PrintError();
